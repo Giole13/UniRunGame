@@ -15,29 +15,88 @@ SpriteAtlas:
       compressionQuality: 50
       maxTextureSize: 2048
       textureCompression: 0
-      filterMode: 1
+      filterMode: 0
       generateMipMaps: 0
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 102900000, guid: d3487e2cdf9b2134f94ffc6b7b570ad1, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f716f7502ddb743ef982e4d223876d5c, type: 3}
+  - {fileID: 21300002, guid: f716f7502ddb743ef982e4d223876d5c, type: 3}
+  - {fileID: 21300004, guid: f716f7502ddb743ef982e4d223876d5c, type: 3}
+  - {fileID: 21300006, guid: f716f7502ddb743ef982e4d223876d5c, type: 3}
+  - {fileID: 21300008, guid: f716f7502ddb743ef982e4d223876d5c, type: 3}
+  - {fileID: 21300000, guid: 13782714fc1b64ce3b94b158effe6bda, type: 3}
+  - {fileID: 21300008, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: 21300010, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: 21300000, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: 21300002, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: 21300004, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: 21300006, guid: 5b9cf154823f6440b9c40d54c5d1bdad, type: 3}
+  - {fileID: -1898050022, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: -1321808899, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: 2100354493, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: -864047401, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: -52553092, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: 1621939136, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: -576301810, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: 506731777, guid: d7159a67a357942ef8404ce06e20db64, type: 3}
+  - {fileID: 21300000, guid: 24770088dedc9e84b97afaa1c612d506, type: 3}
+  - {fileID: 21300000, guid: 60b5cbf910608489ea5d7bbe0acbf14a, type: 3}
+  - {fileID: 21300000, guid: 5741b32a258714aeb878182f438cb29f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Toko_Jump_0
+  - Toko_Jump_1
+  - Toko_Jump_2
+  - Toko_Jump_3
+  - Toko_Jump_4
+  - Obstacle
+  - Toko_Die_4
+  - Toko_Die_5
+  - Toko_Die_0
+  - Toko_Die_1
+  - Toko_Die_2
+  - Toko_Die_3
+  - Toko_Run_1
+  - Toko_Run_0
+  - Toko_Run_3
+  - Toko_Run_2
+  - Toko_Run_5
+  - Toko_Run_4
+  - Toko_Run_7
+  - Toko_Run_6
+  - Sky
+  - Platform_Long
+  - Platform
   m_RenderDataMap: {}
   m_Tag: SpriteAll
   m_IsVariant: 0

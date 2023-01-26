@@ -35,7 +35,7 @@ public static partial class GioleFunc
         {
             return searchResult;
         }
-            return searchResult;
+        return searchResult;
     }
 
 
@@ -64,5 +64,38 @@ public static partial class GioleFunc
     {
         Scene activeScene_ = SceneManager.GetActiveScene();
         return activeScene_;
+    }
+
+
+    //! 컴포넌트 가져오는 함수
+    public static SomeType GetComponentMust<SomeType>(this GameObject obj)
+    {
+        SomeType component_ = obj.GetComponent<SomeType>();
+
+        GioleFunc.Assert(component_.IsValid<SomeType>(), $"{obj.name}에서 " +
+            $"{component_.GetType().Name}을(를) 찾을 수 없습니다.");
+
+        return component_;
+    }       // GetComponentMust<>()
+
+
+    //! 트랜스폼을 사용해서 오브젝트를 움직이는 함수
+    public static void Translate(this Transform transform_, Vector2 moveVector)
+    {
+        transform_.Translate(moveVector.x, moveVector.y, 0f);
+
+    }
+
+    //! RectTransform 에서 sizeDelta를 찾아서 리턴하는 함수
+    public static Vector2 GetRectSizeDelta(this GameObject obj_)
+    {
+        return obj_.GetComponentMust<RectTransform>().sizeDelta;
+    }
+
+    //! 오브젝트의 로컬 포지션을 변경하는 함수
+    public static void SetLocalPos(this GameObject obj_,
+        float x, float y, float z)
+    {
+        obj_.transform.localPosition = new Vector3(x, y, z);
     }
 }
