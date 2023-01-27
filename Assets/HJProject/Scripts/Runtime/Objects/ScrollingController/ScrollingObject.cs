@@ -16,6 +16,9 @@ public class ScrollingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.left * scrollingSpeed * Time.deltaTime);
+        if (GameManager.instance.isGameOver == false)
+        { 
+            transform.Translate(Vector2.left * scrollingSpeed * Time.deltaTime);
+        }
     }       // Update();
 }

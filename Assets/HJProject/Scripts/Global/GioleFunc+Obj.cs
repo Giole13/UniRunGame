@@ -60,7 +60,7 @@ public static partial class GioleFunc
     }       // GetRootObj()
 
     //! 현재 활성화 되어 있는 씬을 찾아주는 함수
-    private static Scene GetActiveScene()
+    public static Scene GetActiveScene()
     {
         Scene activeScene_ = SceneManager.GetActiveScene();
         return activeScene_;
@@ -98,4 +98,12 @@ public static partial class GioleFunc
     {
         obj_.transform.localPosition = new Vector3(x, y, z);
     }
+
+    //! 오브젝트의 로컬 포지션을 연산하는 함수
+    public static void AddLocalPos(this GameObject obj_,
+        float x, float y, float z)
+    {
+        obj_.transform.localPosition =
+            obj_.transform.localPosition + new Vector3(x, y, z);
+    }           // AddLocalPos()
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float PLAYER_STEP_ON_Y_ANGLE_MIN = 0.7f; //!< 45µµ °¢µµ
+    private const float PLAYER_STEP_ON_Y_ANGLE_MIN = 0.7f; //!< 45ë„ ê°ë„
 
     public AudioClip deathSound = default;
     public float jumpForce = default;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool isDead = false;
 
     #region Player's Component
-    private Rigidbody2D playerRigid = default;
+    private Rigidbody2D playerRigid = default;                                                                                         
     private Animator playerAni = default;
     private AudioSource playerAudio = default;
     #endregion      // Player's Component
@@ -47,32 +47,33 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        // { ÇÃ·¹ÀÌ¾î Á¡ÇÁ °ü·Ã ·ÎÁ÷
+        // { í”Œë ˆì´ì–´ ì í”„ ê´€ë ¨ ë¡œì§
         if (Input.GetMouseButtonDown(0) && jumpCount < 2)
         {
-            //! Á¡ÇÁ È½¼ö Áõ°¡
+            //! ì í”„ íšŸìˆ˜ ì¦ê°€
             jumpCount++;
-            //! Á¡ÇÁ Á÷Àü¿¡ ¼Óµµ¸¦ ¼ø°£ÀûÀ¸·Î (0,0)·Î º¯°æ
+            //! ì í”„ ì§ì „ì— ì†ë„ë¥¼ ìˆœê°„ì ìœ¼ë¡œ (0,0)ë¡œ ë³€ê²½
             playerRigid.velocity = Vector2.zero;
-            //! ÇÃ·¹ÀÌ¾î¿¡°Ô À§ÂÊÀ¸·Î Èû Ãß°¡
+            //! í”Œë ˆì´ì–´ì—ê²Œ ìœ„ìª½ìœ¼ë¡œ íž˜ ì¶”ê°€
             playerRigid.AddForce(new Vector2(0, jumpForce));
 
             playerAudio.Play();
         }
         else if (Input.GetMouseButtonUp(0) && 0 < playerRigid.velocity.y)
         {
-            //! ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°¿¡¼­ ¼ÕÀ» ¶¼´Â ¼ø°£ && ¼ÓµµÀÇ y °ªÀÌ ¾ç¼ö¶ó¸é (À§·Î  »ó½ÂÁß)
-            //! ÇöÀç ¼Óµµ¸¦ Àý¹ÝÀ¸·Î º¯°æ
+            //! ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ì—ì„œ ì†ì„ ë–¼ëŠ” ìˆœê°„ && ì†ë„ì˜ y ê°’ì´ ì–‘ìˆ˜ë¼ë©´ (ìœ„ë¡œ  ìƒìŠ¹ì¤‘)
+            //! í˜„ìž¬ ì†ë„ë¥¼ ì ˆë°˜ìœ¼ë¡œ ë³€ê²½
 
 
             playerRigid.velocity = playerRigid.velocity * 0.5f;
         }
-        // } ÇÃ·¹ÀÌ¾î Á¡ÇÁ °ü·Ã ·ÎÁ÷
+        // } í”Œë ˆì´ì–´ ì í”„ ê´€ë ¨ ë¡œì§
 
-        //! Á¡ÇÁÁßÀÌ ¾Æ´Ò ¶§ ±×¶ó¿îµå¿¡¼­ »ç¿ëÇÏ´Â ·ÎÁ÷
+        //! ì í”„ì¤‘ì´ ì•„ë‹ ë•Œ ê·¸ë¼ìš´ë“œì—ì„œ ì‚¬ìš©í•˜ëŠ” ë¡œì§
         playerAni.SetBool("Grounded", isGrounded);
     }
 
+    //! ì• ë‹ˆë©”ì´ì…˜, ì‚¬ìš´ë“œ, ì†ë„ ì´ˆê¸°í™”
     private void Die()
     {
         playerAni.SetTrigger("Die");
@@ -82,10 +83,13 @@ public class PlayerController : MonoBehaviour
 
         playerRigid.velocity = Vector2.zero;
 
+
+        GameManager.instance.OnPlayerDead();
+
         isDead = true;
     }       // Die()
 
-    //! Æ®¸®°Å Ãæµ¹ °¨Áö Ã³¸®¸¦ À§ÇÑ  ÇÔ¼ö
+    //! íŠ¸ë¦¬ê±° ì¶©ëŒ ê°ì§€ ì²˜ë¦¬ë¥¼ ìœ„í•œ  í•¨ìˆ˜
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag.Equals("DeadZone") && isDead == false)
@@ -96,17 +100,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //! ¹Ù´Ú¿¡ ´ê¾Ò´ÂÁö Ã¼Å©ÇÏ´Â ÇÔ¼ö
+    //! ë°”ë‹¥ì— ë‹¿ì•˜ëŠ”ì§€ ì²´í¬í•˜ëŠ” í•¨ìˆ˜
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (PLAYER_STEP_ON_Y_ANGLE_MIN < collision.contacts[0].normal.y)
         {
             isGrounded = true;
             jumpCount = 0;
-        }       // if: 45µµ º¸´Ù ¿Ï¸¸ÇÑ ¶¥À» ¹âÀº °æ¿ì
+        }       // if: 45ë„ ë³´ë‹¤ ì™„ë§Œí•œ ë•…ì„ ë°Ÿì€ ê²½ìš°
     }
 
-    //! ¹Ù´Ú¿¡¼­ ¹þ¾î³µ´ÂÁö Ã¼Å©ÇÏ´Â ÇÔ¼ö
+    //! ë°”ë‹¥ì—ì„œ ë²—ì–´ë‚¬ëŠ”ì§€ ì²´í¬í•˜ëŠ” í•¨ìˆ˜
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;

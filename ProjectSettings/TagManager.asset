@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ForntUi
+    uniqueID: 1104335229
+    locked: 0

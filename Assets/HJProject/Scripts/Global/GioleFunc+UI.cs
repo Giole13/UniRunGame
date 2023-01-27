@@ -5,7 +5,7 @@ using TMPro;
 
 public static partial class GioleFunc
 {
-    public static void SetTmpText(GameObject obj_, string text_)
+    public static void SetTmpText(this GameObject obj_, string text_)
     {
         //! 텍스트매쉬프로 형태의 컴포넌트의 텍스트를 설정하는 경우
         TMP_Text tmpTXT = obj_.GetComponent<TMP_Text>();

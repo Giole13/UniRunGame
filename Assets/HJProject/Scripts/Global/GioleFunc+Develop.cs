@@ -12,6 +12,14 @@ public static partial class GioleFunc
         Debug.Log(message);
 #endif      // DEBUG_MODE
     }
+    
+    [System.Diagnostics.Conditional("DEBUG_MODE")]
+    public static void LogWarning(object message)
+    {
+#if DEBUG_MODE
+        Debug.LogWarning(message);
+#endif      // DEBUG_MODE
+    }
 
     [System.Diagnostics.Conditional("DEBUG_MODE")]
     public static void Log(object message, UnityEngine.Object context)
