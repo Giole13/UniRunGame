@@ -8,12 +8,14 @@ public class ScrollingObjectController : MonoBehaviour
     public string prefabName = default;
     public int scrollingObjCount = default;
 
-
     public float scrollingSpeed = default;
 
-    private GameObject objPrefab = default;
+    protected float prefabYPos = default;
+    protected GameObject objPrefab = default;
     protected Vector2 objPrefabSize = default;
     protected List<GameObject> scrollingPool = default;
+
+    
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -21,6 +23,8 @@ public class ScrollingObjectController : MonoBehaviour
         objPrefab = gameObject.FindChildObj(prefabName);
         objPrefabSize = objPrefab.GetRectSizeDelta();
         scrollingPool = new List<GameObject>();
+
+        prefabYPos = objPrefab.transform.localPosition.y;
 
         GioleFunc.Assert(objPrefab != null || objPrefab != default);
 
